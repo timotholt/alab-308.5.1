@@ -1,4 +1,4 @@
-console.log(`hello world`);
+console.log(`hello world from alab308.5.1`);
 
 //===============================================
 // Part 1
@@ -88,8 +88,8 @@ function recursivePrintN(n) {
 
 // Test numbers part 1
 const numArray_p1 = [ 22, 44, 66, 101, 23, 1, -2];
-console.log(`Sum of array ${numArray_p1} = ${sumArray(numArray_p1)}`);
-console.log(`Avg of array ${numArray_p1} = (${sumArray(numArray_p1)} / ${numArray_p1.length}) = ${avgArray(numArray_p1)}`);
+console.log(`Sum of array [${numArray_p1}] = ${sumArray(numArray_p1)}`);
+console.log(`Avg of array [${numArray_p1}] = (${sumArray(numArray_p1)} / ${numArray_p1.length}) = ${avgArray(numArray_p1)}`);
 
 // Test strings part 1
 const stringArrayv1_p1 = [
@@ -180,7 +180,14 @@ const numPeople = mappedPart2TestData.length;
 const averageAge = (sumAgeOfPeople / numPeople).toFixed(3);
 console.log(`The average age (rounded to 3 decimals) = (${sumAgeOfPeople} / ${numPeople} ) = ${averageAge}`);
 
+//===============================================
+// Part 3
+//===============================================
+
+console.log(`=== part 3 ===`);
+
+
 // End of message
-console.log(`goodbye world`);
+console.log(`goodbye world from alab308.5.1`);
 
 
