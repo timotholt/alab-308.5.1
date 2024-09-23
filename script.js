@@ -1,19 +1,24 @@
 console.log(`hello world`);
 
 // Part 1
-// Take an array of numbers and return the sum.
+console.log(`=== part 1 ===`);
 
+// Take an array of numbers and return the sum.
 function sumArray(array) {
-    let sum = 0;
-    for (i = sum = 0; i < array.length; i++)
-        sum += array[i];
+    let sum = NaN;
+
+    if (array.length)
+        for (i = sum = 0; i < array.length; i++)
+            sum += array[i];
+    else
+        console.log(`array isn't complete, invalid, or wrong length`);
 
     return (sum);
 }
 
 // Take an array of numbers and return the average.
 function avgArray(array) {
-    let avg;
+    let avg = NaN;
 
     if (array.length) {
         avg = sumArray(array) / array.length;
@@ -100,6 +105,8 @@ const stringArrayv2_p1 = [
 
 const longerThan_p1 = 3;
 console.log(`Longest string in ${stringArrayv1_p1} = ${longestStringInArray(stringArrayv1_p1)}`);
+console.log(`Longest string in ${stringArrayv2_p1} = ${longestStringInArray(stringArrayv2_p1)}`);
+
 console.log(`Strings longer than ${longerThan_p1} characters in ${stringArrayv1_p1} = ${arrayStringsLongerThanN(stringArrayv1_p1, longerThan_p1)}`);
 console.log(`Strings longer than ${longerThan_p1} characters in ${stringArrayv2_p1} = ${arrayStringsLongerThanN(stringArrayv2_p1, longerThan_p1)}`);
 
@@ -114,6 +121,13 @@ console.log(`This should result in printing 1-7`);
 recursivePrintN(7);
 console.log(`This should result in printing 1-11`);
 recursivePrintN(11);
+
+// Part 2
+console.log(`=== part 2 ===`);
+
+
+
+
 
 // End of message
 console.log(`goodbye world`);
