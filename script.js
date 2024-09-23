@@ -153,6 +153,33 @@ const filteredPart2TestData = sortedPart2TestData.filter(a => a.age <= 50);
 console.log(`Part 2 Test Data, all ages over 50 removed:`)
 console.log(filteredPart2TestData);
 
+// Using map, make a new array with key name 'occupation'
+// changed to 'job' and bump the age by 1
+function mapProcess(obj) {
+    let newObject = {};
+    newObject.id = obj.id;
+    newObject.name = obj.name;
+    newObject.job = obj.occupation;
+    newObject.age = (Number(obj.age) + 1).toString();
+    return newObject;
+}
+const mappedPart2TestData = filteredPart2TestData.map(mapProcess);
+console.log(`Part 2 Test Data, mapped and filtered to change job to occupation and add 1 to the age`);
+console.log(mappedPart2TestData);
+
+// Use the reduce method to calculate the sum of the ages.
+function reduceProcess(total,p) {
+    return total + Number(p.age);
+}
+const sumAgeOfPeople = mappedPart2TestData.reduce(reduceProcess,0);
+console.log(`The sum of the ages = ${sumAgeOfPeople}`);
+console.log(mappedPart2TestData);
+
+// Calculate the average age
+const numPeople = mappedPart2TestData.length;
+const averageAge = (sumAgeOfPeople / numPeople).toFixed(3);
+console.log(`The average age (rounded to 3 decimals) = (${sumAgeOfPeople} / ${numPeople} ) = ${averageAge}`);
+
 // End of message
 console.log(`goodbye world`);
 
