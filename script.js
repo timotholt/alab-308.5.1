@@ -1,6 +1,9 @@
 console.log(`hello world`);
 
+//===============================================
 // Part 1
+//===============================================
+
 console.log(`=== part 1 ===`);
 
 // Take an array of numbers and return the sum.
@@ -35,7 +38,6 @@ function longestStringInArray(array) {
     let maxlength = -1;
 
     if (array.length) {
-        
         for (let i = 0; i < array.length; i++)
             if (typeof array[i] === 'string')
                 if (array[i].length > maxlength) {
@@ -122,12 +124,36 @@ recursivePrintN(7);
 console.log(`This should result in printing 1-11`);
 recursivePrintN(11);
 
+//===============================================
 // Part 2
+//===============================================
+
 console.log(`=== part 2 ===`);
 
+// Test data from the assignment
+const part2TestData = 
+[{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+    { id: "48", name: "Barry", occupation: "Runner", age: "25" },
+    { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+    { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+    { id: "7", name: "Bilbo", occupation: "None", age: "111" }];
 
+// Display test data
+console.log(`Part 2 Test Data is:`)
+console.log(part2TestData);
 
+// Sort array by age and display it
+const sortedPart2TestData = [...part2TestData];
+sortedPart2TestData.sort((a, b) => a.age - b.age); 
+console.log(`Part 2 Test Data, sorted by age is:`)
+console.log(sortedPart2TestData);
 
+// Filter the array and remove all entries > 50
+const filteredPart2TestData = sortedPart2TestData.filter(a => a.age <= 50); 
+console.log(`Part 2 Test Data, all ages over 50 removed:`)
+console.log(filteredPart2TestData);
 
 // End of message
 console.log(`goodbye world`);
+
+
