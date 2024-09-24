@@ -1,5 +1,38 @@
 console.log(`hello world from alab308.5.1`);
 
+//============================================================================
+// This helper function outputs the person object or array of objects to
+// the console.
+//============================================================================
+function displayPersonType(unknownObject) {
+    let seperator = '';
+
+    // helper function has a helper function to display a single object
+    function displayPerson(obj, header = '') {
+        let jobOrOccupation = 'occupation';
+        let jobOrOccupationValue = obj.occupation;
+
+        if (header.length > 0)
+            seperator = ': ';
+        if (obj.job) {
+            jobOrOccupation = 'job';
+            jobOrOccupationValue = obj.job;
+        }
+
+        if (obj.updated_at)
+            console.log(`${header}${seperator}{ id: ${obj.id} name: ${obj.name} ${jobOrOccupation}: ${jobOrOccupationValue} age: ${obj.age} updated_at: ${obj.updated_at}}`);
+        else
+            console.log(`${header}${seperator}{ id: ${obj.id} name: ${obj.name} ${jobOrOccupation}: ${jobOrOccupationValue} age: ${obj.age}}`);
+    };
+
+    // If the unknown passed was an 
+    if (Array.isArray(unknownObject)) {
+        for (let i = 0; i < unknownObject.length; i++)
+            displayPerson(unknownObject[i], i.toString());    
+    } else if (typeof unknownObject === 'object')
+        displayPerson(unknownObject);
+}
+
 //===============================================
 // Part 1
 //===============================================
@@ -138,20 +171,22 @@ const part2TestData =
     { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
     { id: "7", name: "Bilbo", occupation: "None", age: "111" }];
 
+debugger;
+
 // Display test data
 console.log(`Part 2 Test Data is:`)
-console.log(part2TestData);
+displayPersonType(part2TestData);
 
 // Sort array by age and display it
 const sortedPart2TestData = [...part2TestData];
 sortedPart2TestData.sort((a, b) => a.age - b.age); 
 console.log(`Part 2 Test Data, sorted by age is:`)
-console.log(sortedPart2TestData);
+displayPersonType(sortedPart2TestData);
 
 // Filter the array and remove all entries > 50
 const filteredPart2TestData = sortedPart2TestData.filter(a => a.age <= 50); 
 console.log(`Part 2 Test Data, all ages over 50 removed:`)
-console.log(filteredPart2TestData);
+displayPersonType(filteredPart2TestData);
 
 // Using map, make a new array with key name 'occupation'
 // changed to 'job' and bump the age by 1
@@ -164,8 +199,8 @@ function mapProcess(obj) {
     return newObject;
 }
 const mappedPart2TestData = filteredPart2TestData.map(mapProcess);
-console.log(`Part 2 Test Data, mapped and filtered to change job to occupation and add 1 to the age`);
-console.log(mappedPart2TestData);
+console.log(`Part 2 Test Data, mapped and filtered to change key:occupation key:job and add 1 to the age`);
+displayPersonType(mappedPart2TestData);
 
 // Use the reduce method to calculate the sum of the ages.
 function reduceProcess(total,p) {
@@ -173,7 +208,6 @@ function reduceProcess(total,p) {
 }
 const sumAgeOfPeople = mappedPart2TestData.reduce(reduceProcess,0);
 console.log(`The sum of the ages = ${sumAgeOfPeople}`);
-console.log(mappedPart2TestData);
 
 // Calculate the average age
 const numPeople = mappedPart2TestData.length;
@@ -185,6 +219,9 @@ console.log(`The average age (rounded to 3 decimals) = (${sumAgeOfPeople} / ${nu
 //===============================================
 
 console.log(`=== part 3 ===`);
+
+debugger;
+
 
 // Take an object and increment its age field.
 function incrementAgeByReference(obj) {
@@ -227,26 +264,26 @@ const part3TestDataByReference = [...part3TestData];
 
 // Test incrementAgeByReference
 console.log(`Part 3 test data (before pass by reference)`);
-console.log(part3TestData);
+displayPersonType(part3TestData);
 
 // Increment all ages in the test data by reference
 for (let i = 0; i < part3TestDataByReference.length; i++)
     incrementAgeByReference(part3TestDataByReference[i]);
 
 console.log(`Part 3 test data after incrementing age by reference:`);
-console.log(part3TestDataByReference);
+displayPersonType(part3TestDataByReference);
 
 //=============================
 let part3TestDataByValue = [];
 
 console.log(`Part 3 Pass By Value Blank result:`);
-console.log(part3TestDataByValue);
+displayPersonType(part3TestDataByValue);
 
 for (let i = 0; i < part3TestDataByReference.length; i++)
     part3TestDataByValue[i] = incrementAgeByValue(part3TestDataByReference[i]);
 
 console.log(`Part 3 Pass By Value Filled Result:`);
-console.log(part3TestDataByValue);
+displayPersonType(part3TestDataByValue);
 
 // End of message
 console.log(`goodbye world from alab308.5.1`);
