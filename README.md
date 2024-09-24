@@ -1,4 +1,8 @@
-# alab308.5.1
+alab308.5.1
+
+Source code at: https://github.com/timotholt/alab-308.5.1
+
+Running version at: https://timotholt.github.io/alab-308.5.1/
 
 | Requirement | Finished |
 | :--- | :---: |
