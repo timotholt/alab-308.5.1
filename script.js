@@ -220,9 +220,6 @@ console.log(`The average age (rounded to 3 decimals) = (${sumAgeOfPeople} / ${nu
 
 console.log(`=== part 3 ===`);
 
-debugger;
-
-
 // Take an object and increment its age field.
 function incrementAgeByReference(obj) {
 
