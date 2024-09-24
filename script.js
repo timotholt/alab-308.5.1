@@ -186,6 +186,67 @@ console.log(`The average age (rounded to 3 decimals) = (${sumAgeOfPeople} / ${nu
 
 console.log(`=== part 3 ===`);
 
+// Take an object and increment its age field.
+function incrementAgeByReference(obj) {
+
+    // Get current date
+    let date = Date();
+
+    // Check to see if it has an age key is missing
+    if (!("age" in obj)) {
+
+        // Doesn't exist, add it, initialize it to zero
+        obj.age = 0;
+    }
+    else {
+        let age = Number(obj.age);
+        age++;
+        obj.age = age.toString();
+    }
+
+    // Mark that the age is updated
+    obj.updated_at = date;
+
+    // Return the object
+    return (obj);
+}
+
+// Take an object and increment its age field and return a new object
+function incrementAgeByValue(obj) {
+
+    // Make a shallow copy of the object
+    let newObj = { ... obj };
+
+    // Call the old incrementAgeByReference function
+    return(incrementAgeByReference(newObj));
+}
+
+// Copy the output of part 2 and make it the basis for part 3
+const part3TestData = [...mappedPart2TestData];
+const part3TestDataByReference = [...part3TestData];
+
+// Test incrementAgeByReference
+console.log(`Part 3 test data (before pass by reference)`);
+console.log(part3TestData);
+
+// Increment all ages in the test data by reference
+for (let i = 0; i < part3TestDataByReference.length; i++)
+    incrementAgeByReference(part3TestDataByReference[i]);
+
+console.log(`Part 3 test data after incrementing age by reference:`);
+console.log(part3TestDataByReference);
+
+//=============================
+let part3TestDataByValue = [];
+
+console.log(`Part 3 Pass By Value Blank result:`);
+console.log(part3TestDataByValue);
+
+for (let i = 0; i < part3TestDataByReference.length; i++)
+    part3TestDataByValue[i] = incrementAgeByValue(part3TestDataByReference[i]);
+
+console.log(`Part 3 Pass By Value Filled Result:`);
+console.log(part3TestDataByValue);
 
 // End of message
 console.log(`goodbye world from alab308.5.1`);
